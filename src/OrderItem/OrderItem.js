@@ -14,7 +14,7 @@ const OrderItem = (props) => {
                 <small className="">Sold by: {seller}</small>
                 <h2 className="">Quantity: {quantity}</h2>
 
-                <button onClick={()=> handleRemove(props.item.key)} className="bg-yellow-400 px-8  rounded border-black border"><FontAwesomeIcon icon={faTrash} /> Remove Item</button>
+                <button onClick={()=> handleRemove(props.item.key)} className="bg-yellow-400 px-8  rounded border-black border"><FontAwesomeIcon icon={faTrash} /> Remove</button>
             </div>
         </div>
 

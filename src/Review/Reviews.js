@@ -9,19 +9,7 @@ import OrderItem from '../OrderItem/OrderItem';
 const Reviews = () => {
     const [products] = GetProducts();
     const [orders, setOrders] = useState([]);
-    // let orders = localStorage.getItem('shopping-cart');
-    // orders = JSON.parse(orders);
-    // console.log(orders);
-    // let items = [];
-    // for (const key in orders) {
-    //     console.log(key)
-    //     const item = products.find(product => product.key === key);
-    //     if (item) {
-    //         item.quantity = orders[key];
-    //         items.push(item);
-    //     }
-
-    // }
+    
 
     useEffect(() => {
         
@@ -43,6 +31,9 @@ const Reviews = () => {
 
     const handleRemoveItem = (key) => {
         // console.log(key);
+        const newOrders = orders.filter(product => product.key !== key);
+        setOrders(newOrders);
+        removeToDb(key);
         
     }
 
