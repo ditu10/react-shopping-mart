@@ -7,11 +7,12 @@ import './Header.css'
 const Header = () => {
     return (
         <div>
-            <img width='22%' className="mx-auto mb-3" src={img} alt="" />
+            <img width='22%' className="mx-auto my-2" src={img} alt="" />
             <nav className="bg-gray-900 text-white text-left px-12 text-l">
                <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Shop">Shop</NavLink>
                <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Orders">Order review</NavLink>
-               <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Inventory">Manage Inventory</NavLink>
+                <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Inventory">Manage Inventory</NavLink>
+                
                 
             </nav>
             <div className="py-5 bg-gray-800">

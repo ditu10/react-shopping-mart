@@ -7,32 +7,40 @@ import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import Reviews from './Review/Reviews';
 import Inventory from './Inventory/Inventory';
 import NotFound from './NotFound/NotFound';
+import PlaceOrder from './PlaceOrder/PlaceOrder';
 
 function App() {
   return (
     <div className="App">
       
       <BrowserRouter>
+      <Header></Header>
         <Switch>
+
           <Route exact path="/">
-            <Header></Header>
             <Body></Body>
           </Route>
+
           <Route exact path="/Shop">
-          <Header></Header>
             <Body></Body>
           </Route>
+
           <Route exact path="/Orders">
-            <Header></Header>
             <Reviews></Reviews>
           </Route>
+
           <Route exact path="/Inventory">
-            <Header></Header>
             <Inventory></Inventory>
           </Route>
+
+          <Route exact path="/placeorder">
+            <PlaceOrder></PlaceOrder>
+          </Route>
+
           <Route path="*">
             <NotFound></NotFound>
           </Route>
+          
         </Switch>
       </BrowserRouter>
       

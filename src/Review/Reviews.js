@@ -1,18 +1,22 @@
+import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import GetProducts from '../Hooks/GetProducts';
 import getProducts from '../Hooks/GetProducts';
-import { getDb, removeToDb } from '../localStorage/localstorage';
+import { deleteDB as cleartheCart, getDb, removeToDb } from '../localStorage/localstorage';
 import Order from '../Order/Order';
 import OrderItem from '../OrderItem/OrderItem';
+import { useHistory } from 'react-router';
 
 
 const Reviews = () => {
     const [products] = GetProducts();
     const [orders, setOrders] = useState([]);
-    
+    const history = useHistory()
 
     useEffect(() => {
-        
+
         if (products.length) {
             const savedDB = getDb();
             // console.log(savedDB);
@@ -25,16 +29,21 @@ const Reviews = () => {
             }
             console.log(orderdItems)
             setOrders(orderdItems)
-            
+
         }
-    },[products])
+    }, [products])
 
     const handleRemoveItem = (key) => {
         // console.log(key);
         const newOrders = orders.filter(product => product.key !== key);
         setOrders(newOrders);
         removeToDb(key);
-        
+
+    }
+
+    const btn_placeOrder = () => {
+        cleartheCart();
+        history.push('/placeorder');
     }
 
     return (
@@ -48,7 +57,11 @@ const Reviews = () => {
                     }
                 </div>
                 <div>
-                    <Order isReview={true} orders={orders}></Order>
+                    <Order orders={orders}>
+                        
+                        <button onClick={btn_placeOrder} className="bg-yellow-400 px-8 my-3 rounded border-black border"><small><FontAwesomeIcon icon={faClipboardCheck} /> Place Order</small></button>
+                        
+                    </Order>
                 </div>
             </div>
 

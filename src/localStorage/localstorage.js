@@ -1,6 +1,3 @@
-
-
-
 const addToDb = item => {
     const db = getDb();
     if (item in db) {
@@ -11,6 +8,7 @@ const addToDb = item => {
     }
     saveToLocalStorage(db);
 }
+
 const removeToDb = item => {
     const db = getDb();
     if (item in db) {
@@ -18,6 +16,10 @@ const removeToDb = item => {
     }
     
     saveToLocalStorage(db);
+}
+
+const deleteDB = () => {
+    localStorage.removeItem('shopping-cart');
 }
 
 const saveToLocalStorage = db => {
@@ -38,4 +40,4 @@ const getDb = () => {
     return db;
 }
 
-export {addToDb, getDb, removeToDb };
+export {addToDb, getDb, removeToDb , deleteDB};
