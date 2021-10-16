@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import useFirebase from '../Hooks/useFirebase';
+import useAuth from '../Hooks/useAuth';
 import img from '../images/logo.png'
 import './Header.css'
 
 //  <a className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" href="/Shop">Shop</a> 
 const Header = () => {
-    const { user , logOut} = useFirebase();
+    const { user , logOut} = useAuth();
     return (
         <div>
             <img width='22%' className="mx-auto my-2" src={img} alt="" />
@@ -14,6 +14,11 @@ const Header = () => {
                 <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Shop">Shop</NavLink>
                 <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Orders">Order review</NavLink>
                 <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/Inventory">Manage Inventory</NavLink>
+                <NavLink className="hover:bg-gray-200 py-2 px-5 inline-block hover:text-black" to="/shipping">Shipping</NavLink>
+                {
+                    user.email && <span style={{marginRight:'10px'}}>{user.displayName}</span>
+                }
+                
                 {
                     user.email ?
                     <button className="" onClick={logOut}>Log Out</button>

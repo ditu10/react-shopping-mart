@@ -42,8 +42,8 @@ const Reviews = () => {
     }
 
     const btn_placeOrder = () => {
-        cleartheCart();
-        history.push('/placeorder');
+        // cleartheCart();
+        history.push('/shipping');
     }
 
     return (
@@ -59,7 +59,7 @@ const Reviews = () => {
                 <div>
                     <Order orders={orders}>
                         
-                        <button onClick={btn_placeOrder} className="bg-yellow-400 px-8 my-3 rounded border-black border"><small><FontAwesomeIcon icon={faClipboardCheck} /> Place Order</small></button>
+                        <button onClick={btn_placeOrder} className="bg-yellow-400 px-8 my-3 rounded border-black border"><small><FontAwesomeIcon icon={faClipboardCheck} /> Proceed to ship</small></button>
                         
                     </Order>
                 </div>
